@@ -12,6 +12,8 @@ This project is an attempt to create high order functions similarly as [rambdax]
 
 * maps - Implementations that operate over maps will be postfixed `_map`. [TODO]
 
+* operators - All operator fns can just be thrown in operators.v
+
 ## Help
 
 This is at the early stages of development. Full implementation. ETA Aug 2021
