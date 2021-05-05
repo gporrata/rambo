@@ -1,6 +1,8 @@
+Last updated May 4th, 2021
+
 # Rambo
 
-This project is an attempt to create high order functions similarly as [rambdax](https://selfrefactor.github.io/rambdax) but for [v](https://vlang.io/). Yes I'm from the 80s. What's more 80's than Rambo?
+This project is an attempt to create high order functions similarly as [rambdax](https://selfrefactor.github.io/rambdax) but for [v](https://vlang.io/). Yes I'm from the 80s. What's more 80's than Rambo? True. lol
 
 ## Conventions
 
@@ -11,5 +13,7 @@ This project is an attempt to create high order functions similarly as [rambdax]
 * maps - Implementations that operate over maps will be postfixed `_map`. [TODO]
 
 ## Help
+
+This is at the early stages of development. Full implementation. ETA Aug 2021
 
 Feel free to provide PRs to help with this project. Keep them short and sweet and use files to implement 1 method at a time. Also provide a test file to make sure the function works.
