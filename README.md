@@ -1,4 +1,4 @@
-Last updated May 4th, 2021
+Last updated May 7th, 2021
 
 # Rambo
 
@@ -6,7 +6,7 @@ This project is an attempt to create high order functions similarly as [rambdax]
 
 ## Conventions
 
-CURRYING ISSUE: Currently not able to curry until vlan supports closures. This is important for *rambo* as the returned anonymous functions need access to passed in arguments such as the predicate when implementing this high order functions. As such... will need to wait for the completion of [this](https://github.com/vlang/v/issues/7740).
+CURRYING ISSUE: Currently not able to curry until vlan supports closures. This is important for *rambo* as the returned anonymous functions need access to passed in arguments such as the predicate when implementing high order functions. As such... will need to wait for the completion of [this](https://github.com/vlang/v/issues/7740).
 
 * currying - Curried implementations for most functions are done by postfixing `_c1` or `_c2` meaning curry 1 or two arguments respectively. For instance you can do `map_c1` to create a mapper function with a given predicate to run over yet determined lists. [TODO]
 
