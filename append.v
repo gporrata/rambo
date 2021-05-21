@@ -1,8 +1,7 @@
 module rambo
 
-// todo: make this generic
-pub fn append(t int, list []int) []int {
-	mut result := []int{cap: list.cap + 1}
+pub fn append<T>(t T, list []T) []T {
+	mut result := []T{cap: list.cap + 1}
 	for element in list {
 		result << element
 	}
