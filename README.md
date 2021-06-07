@@ -18,6 +18,6 @@ CURRYING ISSUE: Currently not able to curry until vlan supports closures. This i
 
 ## Help
 
-This is at the early stages of development. Full implementation. ETA Aug 2021
+This is at the early stages of development. Full implementation. ETA Oct 2021
 
 Feel free to provide PRs to help with this project. Keep them short and sweet and use files to implement 1 method at a time. Also provide a test file to make sure the function works.
