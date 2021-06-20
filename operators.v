@@ -1,9 +1,11 @@
 module rambo
 
-fn add<T>(val1 T, val2 T) T {
+// todo: separate into files
+
+pub fn add<T>(val1 T, val2 T) T {
 	return T + T
 }
 
-fn and<T>(val1 T, val2 T) T {
+pub fn and<T>(val1 T, val2 T) T {
 	return T && T
 }
