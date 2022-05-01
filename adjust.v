@@ -1,5 +1,6 @@
 module rambo
 
+// replaces item in `list` with the results of `predicate(list[index])`
 pub fn adjust<T>(index int, predicate fn(T) T, list []T) []T {
 	mut result := []T{cap: list.cap}
 	for curr_index := 0; curr_index < list.len; curr_index++ {
