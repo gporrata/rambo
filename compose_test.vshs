@@ -1,0 +1,37 @@
+#!/usr/bin/env -S v run
+
+fn generate_header() {
+	println('import rambo as r')
+	println('')
+}
+
+fn generate_
+
+fn generate_tests(max_fn int) {
+	mut generics := 'A, B'
+	mut args := '\n  a fn(A) B'
+	mut call := 'a(input)'
+	for num := 2; num <= max_fn; num++ {
+		from := '${`A` + num - 1}'
+		from_lowercase := '${`a` + num -1}'
+		result_type := '${`A` + num}'
+		generics = '$generics, $result_type'
+		args = '\n  $from_lowercase fn($from) $result_type,$args'
+		call = '${from_lowercase}(${call})'
+		println('pub fn compose${num}<${generics}>(${args}\n) fn(A) ${result_type} {')
+		println('  return fn(input A) ${result_type} {')
+		println('    return ${call}')
+		println('  }')
+		println('}')
+		println('')
+	}
+
+}
+
+fn generate_compose_test_v() {
+	max_fn := 20
+	generate_header()
+	generate_tests(max_fn)
+}
+
+generate_compose_test_v()

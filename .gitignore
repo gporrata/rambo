@@ -1,5 +1,4 @@
-*
+.*
 !.gitignore
-!*.v
-!*.vsh
-!*.md
+*.so
+rambo
