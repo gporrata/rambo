@@ -20,7 +20,10 @@ fn main() {
   println('module rambo')
   for apply_x in 1 .. 23 {
     args := eval_args(apply_x)
-    println('\npub fn apply${apply_x}<T>(predicate fn(${args}) T, args []T) T {')
+    println('\npub fn apply${apply_x}<T>(predicate fn(${args}) T, args []T) ? T {')
+    println('  if args.len < ${apply_x} {')
+    println('    return error(\'Too few args. Have \${args.len}. Needed ${apply_x}.\')')
+    println('  }')
     call_args := eval_call_args(apply_x)
     for capture_arg_x in 0 .. apply_x {
       println('  arg${capture_arg_x} := args[${capture_arg_x}]')

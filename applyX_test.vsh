@@ -82,7 +82,7 @@ fn eval_test3_result(apply_x int) int {
 fn eval_test_x(apply_x int, eval_test fn(int) string, eval_result fn(int) int) {
 	test := eval_test(apply_x)
 	test_result := eval_result(apply_x)
-	println('  assert(r.apply${apply_x}(sum${apply_x}, [${test}]) == ${test_result})')
+	println('  assert(r.apply${apply_x}(sum${apply_x}, [${test}])? == ${test_result})')
 }
 
 fn create_test_apply(apply_x int) {
@@ -91,7 +91,7 @@ fn create_test_apply(apply_x int) {
 	add_args := eval_add_args(apply_x)
 	println('  return ${add_args}')
 	println('}')
-	println('\nfn test_apply${apply_x}() {')
+	println('\nfn test_apply${apply_x}() ? {')
 	eval_test_x(apply_x, eval_test1, eval_test1_result)
 	eval_test_x(apply_x, eval_test2, eval_test2_result)
 	eval_test_x(apply_x, eval_test3, eval_test3_result)
