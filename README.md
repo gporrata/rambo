@@ -21,3 +21,7 @@ After a long hiatus I'm back and happy to find [closures are finally implemented
 This is at the early stages of development. Full implementation. ETA Jan 2023
 
 Feel free to provide PRs to help with this project. Keep them short and sweet and use files to implement 1 method at a time. Also provide a test file to make sure the function works.
+
+## Issues
+
+Currently stuck on this issue: [Attempting to create closure with a passed in anonymous function. For currying basically](https://github.com/vlang/v/issues/14411)
