@@ -9,6 +9,6 @@ fn by2(len int) []int {
 }
 
 fn test_chain() {
-	assert(r.chain(by2, [1, 2, 3]) == [0, 0, 5, 0, 5, 10])
-	assert(r.chain(by2, [3, 2, 1]) == [0, 5, 10, 0, 5, 0])
+	assert(r.chain<int, int>(by2, [1, 2, 3]) == [0, 0, 5, 0, 5, 10])
+	assert(r.chain<int, int>(by2, [3, 2, 1]) == [0, 5, 10, 0, 5, 0])
 }
