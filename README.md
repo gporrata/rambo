@@ -21,3 +21,5 @@ After a long hiatus I'm back and happy to find [closures are finally implemented
 This is at the early stages of development. Full implementation. ETA Jan 2024. I was waiting for vlang to fix their closure implementation and it seems they have. So continue forward I must. :)
 
 Feel free to provide PRs to help with this project. Keep them short and sweet and use files to implement 1 method at a time. Also provide a test file to make sure the function works.
+
+[api](./rambo.md)
