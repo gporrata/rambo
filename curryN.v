@@ -1,22 +1,14 @@
 module rambo
 
-pub fn curry1of2(
-	predicate fn(arg0 int, arg1 int) string,
-	arg0 int
-) fn(int) string
+pub fn curry1of2<A, B, Z>(
+	predicate fn(arg0 A, arg1 B) Z,
+	arg0 A
+) fn(B) Z
 {
-	return fn[predicate, arg0](arg1 int) string {
+	return fn[predicate, arg0] <B, Z> (arg1 B) Z {
 		return predicate(arg0, arg1)
 	}
 }
 
-/* todo: curry1of3 fails with generics?
-pub fn curry1of3<A, B, D, Z>(
-	predicate fn(arg0 A, arg1 B, arg2 D) Z,
-	arg0 A
-) fn(B, D) Z {
-	return fn[predicate, arg0]<B, D, Z>(arg1 B, arg2 D) Z {
-		return predicate(arg0, arg1, arg2)
-	}
-}
-*/
+// waiting for this to compile successfuly. vlang bug
+// https://github.com/vlang/v/issues/17749

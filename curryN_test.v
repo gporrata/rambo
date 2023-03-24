@@ -4,7 +4,7 @@ fn test_curry1of2() {
 	existing_fn := fn (arg0 int, arg1 int) string {
 		return (arg0 + arg1).str()
 	}
-	new_fn := r.curry1of2(existing_fn, 100)
+	new_fn := r.curry1of2<int, int, string>(existing_fn, 100)
 	assert(new_fn(1) == '101')
 }
 
