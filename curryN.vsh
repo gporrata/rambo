@@ -1,57 +1,72 @@
 #!/usr/bin/env v
 
-fn eval_type_args(num_args int) string {
-	mut args := 'A'
-	for i in 1 .. num_args {
-		args = '${args}, ${`A` + i}'
+fn mk_arg_type_list(start int, num int, type_name []string) string {
+	mut result := ''
+	for i in start .. num {
+		if i == start {
+			result = "arg$i ${type_name[i]}"
+		} else {
+			result = "$result, arg$i ${type_name[i]}"
+		}
 	}
-	return args
+	return result
 }
 
-fn eval_predicate_args(num_args int) string {
-	mut predicate_args := 'arg0 A'
-	for i in 1 .. num_args {
-		predicate_args = '${predicate_args}, args${i} ${`A` + i}'
+fn mk_type_list(start int, num int, type_name []string) string {
+	mut result := ''
+	for i in start .. num {
+		if i == start {
+			result = type_name[i]
+		} else {
+			result = "$result, ${type_name[i]}"
+		}
 	}
-	return predicate_args
+	return result
 }
 
-fn eval_curry_args(num_curr_args int) string {
-	mut args := 'arg0 A'
-	for i in 1 .. num_curr_args + 1 {
-		args = '${args}, arg${i} ${`A` + i}'
+fn mk_arg_list(start int, num int) string {
+	mut result := ''
+	for i in start .. num {
+		if i == start {
+			result = "arg$i"
+		} else {
+			result = "$result, arg$i"
+		}
 	}
-	return args
+	return result
+
 }
 
-fn eval_uncurry_args_types(num_curr_args int, num_args int) string {
-	for i in num_curr_args .. num_args + 1 {
-		
+fn mk_curry_n(max_args int) {
+	type_name := 'ABDEFGHIJK'.split('')
+	println('module rambo')
+	println('')
+	for num_args in 1 .. max_args {
+		for num_params in 1 .. num_args {
+			fn_name := "curry${num_params}of${num_args}"
+			fn_type_list := mk_type_list(0, num_args, type_name)
+			predicate_args := mk_arg_type_list(0, num_args, type_name)
+			curry_args := mk_arg_type_list(0, num_params, type_name)
+			fn_types := mk_type_list(num_params, num_args, type_name)
+			arg_list := mk_arg_list(0, num_params)
+			fn_arg_list := mk_arg_type_list(num_params, num_args, type_name)
+			curried_args := mk_arg_list(0, num_params)
+			fn_args := mk_arg_list(num_params, num_args)
+			println('
+pub fn $fn_name<$fn_type_list, Z>(
+	predicate fn($predicate_args) Z,
+	$curry_args
+) fn($fn_types) Z
+{
+	return fn[predicate, $arg_list] <$fn_type_list, Z> ($fn_arg_list) Z {
+		return predicate($curried_args, $fn_args)
 	}
 }
-
-fn eval_uncurry_args(num_curr_args int, num_args int) string {
-	return ''
-}
-
-fn curry_impl(num_curr_args int, num_args int) {
-	type_args := eval_type_args(num_args)
-	predicate_args := eval_predicate_args(num_args)
-	curry_args := eval_curry_args(num_curr_args)
-	uncurry_args_types := eval_uncurry_args_types(num_curr_args, num_args)
-	println('\npub fn curry${num_curr_args}of${num_args}<${type_args}, Z>(')
-	println('  predicate fn(${predicate_args}) Z,')
-	println('  ${curry_args}')
-	println(') fn(${uncurry_args_types}) Z')
-	println('{')
-	println('}')
+')
+		}
+	}
 }
 
 fn main() {
-	println('module rambo')
-	for num_args in 2 .. 5 {
-		for num_curr_args in 1 .. num_args {
-			curry_impl(num_curr_args, num_args)
-		}
-	}
+	mk_curry_n(9)
 }
