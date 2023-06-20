@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 declare -a typeName
-typeName=(A B D E F G H I J K)
+typeName=(A B D E F G H I J)
 returnArg=Z
 
 mk_argTypeList() {
@@ -63,12 +63,12 @@ mk_curryN() {
       local curriedArgs=$(mk_argList 0 $numParams)
       local fnArgs=$(mk_argList $numParams $numArgs)
 cat <<__fn
-pub fn $fnName<$fnTypeList>(
+pub fn $fnName<$fnTypeList, Z>(
   predicate fn($predicateArgs) Z,
   $curryArgs
 ) fn($fnTypes) Z
 {
-  return fn[predicate, $argList] <$fnTypeList> ($fnArgList) Z {
+  return fn[predicate, $argList] <$fnTypeList, Z> ($fnArgList) Z {
     return predicate($curriedArgs, $fnArgs)
   }
 }
@@ -78,4 +78,4 @@ __fn
   done
 }
 
-mk_curryN 10
+mk_curryN 8
