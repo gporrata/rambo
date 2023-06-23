@@ -3,14 +3,12 @@ module rambo
 // replaces item in `list` with the results of `predicate(list[index])`
 pub fn adjust<T>(index int, predicate fn(T) T, list []T) []T {
 	mut result := []T{cap: list.cap}
-	for curr_index := 0; curr_index < list.len; curr_index++ {
-		// TODO: should work but wont compile
-		// new_element := if index == curr_index { predicate(list[curr_index]) } else { list[curr_index] }
-		mut element := list[curr_index]
+	for curr_index in 0 .. list.len {
 		if index == curr_index {
-			element = predicate(element)
+			result << predicate(list[curr_index])
+		} else {
+			result << list[curr_index]
 		}
-		result << element
 	}
 	return result
 }
