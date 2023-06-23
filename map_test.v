@@ -9,7 +9,6 @@ fn test_map() {
 	assert(odd == [3, 5, 7, 9])
 }
 
-/* TODO: problem with V type inference?
 fn test_map_of_bools() {
 	even := [2, 4, 6, 7]
 	predicate := fn (n int) bool {
@@ -18,9 +17,7 @@ fn test_map_of_bools() {
 	even_strings := r.map(predicate, even)
 	assert(even_strings == [true, true, true, false])
 }
-*/
 
-/* TODO: problem with V type inference?
 fn test_map_of_strings() {
 	even := [2, 4, 6, 8]
 	predicate := fn (n int) string {
@@ -29,4 +26,3 @@ fn test_map_of_strings() {
 	even_strings := r.map(predicate, even)
 	assert(even_strings == ['2', '4', '6', '8'])
 }
-*/
