@@ -1,5 +1,9 @@
 .*
 !.gitignore
 *.so
+
 rambo
+
+# todo: how to define files without extensions here!!
 curryN
+curryN_test
